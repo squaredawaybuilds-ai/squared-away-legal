@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Disconnect — Squared Away QuickBooks Connector</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 720px; margin: 3rem auto; padding: 0 1rem; line-height: 1.55; color: #222; }
+  h1 { font-size: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; }
+  h2 { font-size: 1.1rem; margin-top: 2rem; }
+  pre { background: #f4f4f4; padding: 0.8rem 1rem; border-radius: 4px; overflow-x: auto; font-size: 0.9em; }
+  code { background: #f4f4f4; padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.9em; }
+  a { color: #2050aa; }
+  ol li { margin-bottom: 0.6rem; }
+</style>
+</head>
+<body>
+<h1>Disconnect the Connector from QuickBooks Online</h1>
+
+<p>Disconnecting the Squared Away QuickBooks Connector takes two steps: revoking the OAuth grant in QuickBooks Online, and removing any locally stored tokens and credentials on the operator's device.</p>
+
+<h2>Step 1: Revoke authorization in QuickBooks Online</h2>
+<ol>
+  <li>Sign in to QuickBooks Online at <a href="https://qbo.intuit.com">qbo.intuit.com</a>.</li>
+  <li>Click the gear icon (top right) → <strong>Apps</strong>.</li>
+  <li>Find <strong>Squared Away QuickBooks Connector</strong> under "Connected apps".</li>
+  <li>Click <strong>Disconnect</strong> and confirm.</li>
+</ol>
+<p>Intuit immediately invalidates the OAuth tokens issued to the app for that company. Any further API calls from the Connector will return an authorization error.</p>
+
+<h2>Step 2: Remove locally stored credentials</h2>
+<p>On the device where the Connector is installed, run:</p>
+<pre>rm ~/.quickbooks-mcp/tokens.json</pre>
+<p>This deletes the locally cached refresh token and access token. To fully uninstall the Connector, also delete the installation directory and remove the <code>.env</code> file containing the Intuit Developer Client ID and Client Secret.</p>
+
+<h2>Reconnecting later</h2>
+<p>To reconnect after disconnecting, see <a href="connect.html">Connect</a>.</p>
+
+<h2>Contact</h2>
+<p>Questions: <a href="mailto:dan@squaredawaybuilds.ca">dan@squaredawaybuilds.ca</a></p>
+</body>
+</html>

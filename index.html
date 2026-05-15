@@ -3,21 +3,45 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Squared Away Builds — Legal</title>
+<title>Squared Away QuickBooks Connector</title>
 <style>
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 720px; margin: 4rem auto; padding: 0 1rem; line-height: 1.55; color: #222; }
-  h1 { font-size: 1.5rem; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 720px; margin: 3rem auto; padding: 0 1rem; line-height: 1.55; color: #222; }
+  h1 { font-size: 1.6rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; }
+  h2 { font-size: 1.1rem; margin-top: 2rem; }
+  .meta { color: #666; font-size: 0.9rem; }
   ul { padding-left: 1.4rem; }
   a { color: #2050aa; }
+  .actions a { display: inline-block; margin-right: 1rem; padding: 0.5rem 0.9rem; border: 1px solid #2050aa; border-radius: 4px; text-decoration: none; }
+  code { background: #f4f4f4; padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.9em; }
 </style>
 </head>
 <body>
-<h1>Squared Away Builds — Legal Documents</h1>
-<p>Documents covering the Squared Away QuickBooks Connector (private internal-use integration).</p>
+<h1>Squared Away QuickBooks Connector</h1>
+<p class="meta">A private, internal-use integration that connects Squared Away Builds' own QuickBooks Online (Canada) company to a local computing environment, via Intuit's official OAuth 2.0 authorization flow.</p>
+
+<h2>What it does</h2>
+<p>The Connector is a local command-line tool that reads accounting data (Profit &amp; Loss, Balance Sheet, A/R and A/P aging, invoices, bills, customers, vendors) and creates or updates invoices, estimates, and bills in Squared Away Builds' authorized QuickBooks Online company. It is operated solely by Squared Away Builds for its own bookkeeping automation.</p>
+
+<h2>Scopes used</h2>
 <ul>
-  <li><a href="eula.html">End User License Agreement</a></li>
-  <li><a href="privacy.html">Privacy Policy</a></li>
+  <li><code>com.intuit.quickbooks.accounting</code> — required to read accounting reports and read/create accounting transactions.</li>
 </ul>
-<p>Contact: <a href="mailto:dan@squaredawaybuilds.ca">dan@squaredawaybuilds.ca</a></p>
+<p>The Connector does <strong>not</strong> request the QuickBooks Payments scope and cannot move money or process payments.</p>
+
+<h2>How it works</h2>
+<p>The Connector is a local Python application invoked from a command line on the operator's own device. On first run, the operator triggers Intuit's OAuth 2.0 authorization flow, which issues an access token and a refresh token. Tokens are stored locally with owner-only file permissions. All subsequent API calls go directly between the operator's device and Intuit's servers over HTTPS.</p>
+
+<h2>Quick links</h2>
+<div class="actions">
+  <a href="connect.html">Connect</a>
+  <a href="disconnect.html">Disconnect</a>
+  <a href="eula.html">EULA</a>
+  <a href="privacy.html">Privacy Policy</a>
+  <a href="launch.html">Launch</a>
+</div>
+
+<h2>Contact</h2>
+<p><a href="mailto:dan@squaredawaybuilds.ca">dan@squaredawaybuilds.ca</a><br>
+Squared Away Builds, British Columbia, Canada</p>
 </body>
 </html>
